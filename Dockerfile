@@ -4,8 +4,7 @@ ENV LANG=C.UTF-8 DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
 RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
     apt-get update -qq && \
     echo 'Installing OS dependencies' && \
-    apt-get install -qq -y --fix-missing sudo software-properties-common git libxext-dev libxrender-dev libxslt1.1 \
-        libxtst-dev libgtk2.0-0 libcanberra-gtk-module unzip wget && \
+    apt-get install -qq -y --fix-missing sudo wget && \
     echo 'Cleaning up' && \
     apt-get clean -qq -y && \
     apt-get autoclean -qq -y && \
@@ -28,8 +27,8 @@ RUN echo 'Downloading IntelliJ IDEA' && \
     echo 'Installing IntelliJ IDEA' && \
     mkdir -p /opt/intellij && \
     tar -xf /tmp/intellij.tar.gz --strip-components=1 -C /opt/intellij && \
-    rm /tmp/intellij.tar.gz
+    rm /tmp/intellij.tar.gz && \
+    ln -s /opt/intellij/bin/*.sh /usr/local/bin/
 
 USER developer
-ENV HOME /home/developer
 CMD /bin/bash
