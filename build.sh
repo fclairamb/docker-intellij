@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -x
 
-echo 'This will take a lot of time...'
-docker build -t dlsniper/docker-intellij .
+docker build -t fclairamb/docker-intellij .
