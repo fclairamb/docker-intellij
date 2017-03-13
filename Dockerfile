@@ -23,7 +23,7 @@ RUN echo 'Creating user: developer' && \
     chmod 4755 /usr/bin/sudo
 
 RUN echo 'Downloading IntelliJ IDEA' && \
-    wget https://download.jetbrains.com/idea/ideaIC-2016.3.2.tar.gz -O /tmp/intellij.tar.gz -q && \
+    wget https://download.jetbrains.com/idea/ideaIC-2016.3.5.tar.gz -O /tmp/intellij.tar.gz -q && \
     echo 'Installing IntelliJ IDEA' && \
     mkdir -p /opt/intellij && \
     tar -xf /tmp/intellij.tar.gz --strip-components=1 -C /opt/intellij && \
